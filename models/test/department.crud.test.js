@@ -37,7 +37,7 @@ describe('Department', () => {
       const expectedName = 'Department #1';
       expect(department.name).to.be.equal(expectedName);
     });
-  
+
     after(async () => {
       await Department.deleteMany();
     });
