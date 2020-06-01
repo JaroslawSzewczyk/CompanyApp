@@ -1,4 +1,4 @@
-const Employee = require('../employee.module');
+const Employee = require('../employee.model');
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
 

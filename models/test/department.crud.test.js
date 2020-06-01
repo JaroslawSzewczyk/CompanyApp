@@ -87,13 +87,10 @@ describe('Department', () => {
     });
   
     it('should properly update multiple documents with "updateMany" method', async () => {
-      it('should properly update multiple documents with "updateMany" method', async () => {
-        await Department.updateMany({}, { $set: { name: 'Updated!' }});
-        const departments = await Department.find({ name: 'Updated!' });
-        expect(departments.length).to.be.equal(2);
-      });
+      await Department.updateMany({}, { $set: { name: 'Updated!' }});
+      const departments = await Department.find({ name: 'Updated!' });
+      expect(departments.length).to.be.equal(2);
     });
-    
   });
 
   describe('Removing data', () => {
@@ -103,10 +100,6 @@ describe('Department', () => {
     
       const testDepTwo = new Department({ name: 'Department #2' });
       await testDepTwo.save();
-    });
-    
-    afterEach(async () => {
-      await Department.deleteMany();
     });
 
     it('should properly remove one document with "deleteOne" method', async () => {
@@ -127,7 +120,10 @@ describe('Department', () => {
       const removedDepartment = await Department.find();
       expect(removedDepartment.length).to.be.equal(0);
     });
-  
+
+    afterEach(async () => {
+      await Department.deleteMany();
+    });
   });
 
 });
